@@ -17,7 +17,7 @@ Program to output the sum of numbers (Sample).
          1. Initially the cd command is given in the terminal.
          2. After which the leafpad _filename_ & is given which is the command for opening the leafpad.
          3. Now the leafpad is opened in which the required code for the title is typed respectively.
-         ![image](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/93e01f38-9ea3-44c1-a062-2b9e9810f0bd)
+         
 
 ##### PROGRAM:
          1. The required code for the given title is written in the leafpad.
@@ -70,18 +70,21 @@ A clock cycle divider is a digital circuit used to generate a clock signal that 
 As mentioned in the above task_1 the similar steps are to be followed. The only difference is that the code involved in the program based on the topic chosen respectively.
 #### COMMAND TO OPEN LEAFPAD:
          1. Initially the cd command is given in the terminal.
-         2. Now the leafpad is opened in which the required code for the title is typed respectively.
-        ![1 Opening of leafpad cdp](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/36b3c1a3-69f0-4b70-8be1-ea47e32b7577)
+         2. Now the leafpad is opened in which the required code for the title is typed respectively
+         ![1 Opening of leafpad cdp](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/e5535b04-718a-48e9-95ea-8169ad011a54)
+
 #### PROGRAM FOR THE CLOCK DIVIDER:
          1. The required code for the given title is written in the leafpad.
          2. The code written has to be saved.
          3. It could be saved by clicking on to the file option on the top left of the leafpad opened.
-         ![2 Clock Divider Program](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/766443bc-74b9-45ec-b0c0-180c531d32bb)
+         ![2 Clock Divider Program](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/5fc1de7c-787e-4171-b3b8-976158e920d8)
+
 #### OUTPUT COMMAND:
          1. The terminal is opened to obtain the output.
          2. The gcc _filename_.c is given with the extension of .c 
          3. After which the ouput is viewed through the command of ./a.out respectively.
-         ![3 Output Command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/6408740a-0a20-48b2-ba93-2d747b6813dc)
+         ![3 Output Command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/4029c8f3-b055-4f51-8953-80796eabf585)
+
 #### OUTPUT OBTAINED:
          1. Thus the result is obtained for the required code given in the leafpad.
          ![4 Output for the cdp code](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/46f87afc-c9cc-4fa8-b36b-5d24329517f2)
@@ -131,8 +134,7 @@ As mentioned in the above task_1 the similar steps are to be followed. The only 
             V
            End
            
-#### EXPLANATION:![1 Opening of leafpad cdp](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/20777544-05f0-4449-87cc-a3c6e1fee894)
-
+#### EXPLANATION:
 * _Start_: The program begins execution.
 * _Initialize counter to 0_: Set the counter variable to 0.
 * _Initialize divided_clock to 0_: Set the divided clock signal to 0.
