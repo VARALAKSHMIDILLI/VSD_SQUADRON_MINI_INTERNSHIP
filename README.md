@@ -39,4 +39,26 @@ Program to output the sum of numbers (Sample).
          4. The above command would thus result in a concised assembly level code.
 #### OUTPUT:
          1. Thus the result is obtained for the required code given in the leafpad.
+
+### TASK_2:
+ Write a simple C program for Clock Cycle Divider: Crafting a Digital Clock Divider Circuit selected and compile with RISC-V GCC.
+### CLOCK CYCLE DIVIDER:
+A clock cycle divider is a digital circuit used to generate a clock signal that has a lower frequency than the original input clock. The divided clock signal can be used in various applications where a slower clock is needed, such as in microcontrollers, digital watches, or other timing-based applications.
+
+### How a Clock Cycle Divider Works:
+*Input Clock*: The original high-frequency clock signal that needs to be divided.
+*Counter*: A digital counter that counts the number of input clock cycles.
+*Divide Factor*: A predetermined value that specifies how many input clock cycles should elapse before toggling the output clock signal.
+
+### Basic Operation:
+*Counting Cycles*: The counter increments on each input clock cycle.
+*Compare Counter to Divide Factor*: When the counter reaches the value specified by the divide factor, the output clock signal is toggled, and the counter is reset.
+*Output Clock*: The resulting output clock signal has a frequency that is the input clock frequency divided by the divide factor.
+
+### STEPS INVOLVED:
+As mentioned in the above task_1 the similar steps are to be followed. The only difference is that the code involved in the program based on the topic chosen respectively.
+### COMMAND TO OPEN LEAFPAD:
+
+
+         
     
