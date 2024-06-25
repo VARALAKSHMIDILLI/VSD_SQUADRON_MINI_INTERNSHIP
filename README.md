@@ -125,7 +125,7 @@ As mentioned in the above task_1 the similar steps are to be followed. The only 
     Toggle    divided_clock
        |         |
        V         V
-    Print"Clock Cycle X: Divided Clock = Y"
+     Print"Clock Cycle X: Divided Clock = Y"
             |
             V
          End Loop
@@ -143,9 +143,9 @@ As mentioned in the above task_1 the similar steps are to be followed. The only 
        * _Call clock_divider()_: Execute the clock_divider() function.
        * _Increment counter by _1_: Increase the counter value by 1.
        * _Is counter >= DIVIDE_FACTOR?_: Check if the counter has reached or exceeded the divide factor.
-                * _Yes_: If true, proceed to reset the counter and toggle the divided clock signal.
-                * _Reset counter to 0_: Set the counter back to 0.
-                * _Toggle divided_clock_: Change the state of the divided clock signal (from 0 to 1 or from 1 to 0).
+            * _Yes_: If true, proceed to reset the counter and toggle the divided clock signal.
+                 * _Reset counter to 0_: Set the counter back to 0.
+                 * _Toggle divided_clock_: Change the state of the divided clock signal (from 0 to 1 or from 1 to 0).
             * _No_: If false, continue without resetting the counter or toggling the clock.
       * _Print clock cycle status_: Print the current clock cycle number and the state of the divided clock.
 * _End Loop_: Once all 20 iterations are complete, exit the loop.
