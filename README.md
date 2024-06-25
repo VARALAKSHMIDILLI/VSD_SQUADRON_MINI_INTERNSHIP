@@ -119,16 +119,16 @@ As mentioned in the above task_1 the similar steps are to be followed. The only 
       Yes       No
        |         |
        V         V
-Reset to 0    Continue     
+    Reset to 0  Continue     
        |         |
        V         V
-  Toggle divided_clock
+    Toggle    divided_clock
        |         |
        V         V
- Print"Clock Cycle X: Divided Clock = Y"
+    Print"Clock Cycle X: Divided Clock = Y"
             |
             V
-       End Loop
+         End Loop
             |
             V
            End
