@@ -123,7 +123,7 @@ As mentioned in the above task_1 the similar steps are to be followed. The only 
   Toggle divided_clock
        |         |
        V         V
- Print "Clock Cycle X: Divided Clock = Y"
+ Print"Clock Cycle X: Divided Clock = Y"
             |
             V
        End Loop
@@ -131,23 +131,24 @@ As mentioned in the above task_1 the similar steps are to be followed. The only 
             V
            End
            
-#### EXPLANATION:
-_Start_: The program begins execution.
-_Initialize counter to 0_: Set the counter variable to 0.
-_Initialize divided_clock to 0_: Set the divided clock signal to 0.
-_Print start message_: Print "Starting clock divider simulation..." to the console.
-_Loop for 20 iterations_: Repeat the following steps 20 times.
-_Inside Loop Iteration_:
-       _Call clock_divider()_: Execute the clock_divider() function.
-       _Increment counter by _1: Increase the counter value by 1.
-       _Is counter >= DIVIDE_FACTOR?_: Check if the counter has reached or exceeded the divide factor.
-             _Yes_: If true, proceed to reset the counter and toggle the divided clock signal.
-                _Reset counter to 0_: Set the counter back to 0.
-                _Toggle divided_clock_: Change the state of the divided clock signal (from 0 to 1 or from 1 to 0).
-             _No_: If false, continue without resetting the counter or toggling the clock.
-       _Print clock cycle status_: Print the current clock cycle number and the state of the divided clock.
-_End Loop_: Once all 20 iterations are complete, exit the loop.
-_End_: The program terminates.
+#### EXPLANATION:![1 Opening of leafpad cdp](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/20777544-05f0-4449-87cc-a3c6e1fee894)
+
+* _Start_: The program begins execution.
+* _Initialize counter to 0_: Set the counter variable to 0.
+* _Initialize divided_clock to 0_: Set the divided clock signal to 0.
+* _Print start message_: Print "Starting clock divider simulation..." to the console.
+* _Loop for 20 iterations_: Repeat the following steps 20 times.
+* _Inside Loop Iteration_:
+       * _Call clock_divider()_: Execute the clock_divider() function.
+       * _Increment counter by _1_: Increase the counter value by 1.
+       * _Is counter >= DIVIDE_FACTOR?_: Check if the counter has reached or exceeded the divide factor.
+                * _Yes_: If true, proceed to reset the counter and toggle the divided clock signal.
+                * _Reset counter to 0_: Set the counter back to 0.
+                * _Toggle divided_clock_: Change the state of the divided clock signal (from 0 to 1 or from 1 to 0).
+            * _No_: If false, continue without resetting the counter or toggling the clock.
+      * _Print clock cycle status_: Print the current clock cycle number and the state of the divided clock.
+* _End Loop_: Once all 20 iterations are complete, exit the loop.
+* _End_: The program terminates.
 This flowchart provides a visual representation of how the program executes, dividing the input clock signal and printing the state of the divided clock for each cycle.
 
 
