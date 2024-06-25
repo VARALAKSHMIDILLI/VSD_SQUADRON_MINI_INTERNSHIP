@@ -17,23 +17,23 @@ Program to output the sum of numbers (Sample).
          1. Initially the cd command is given in the terminal.
          2. After which the leafpad _filename_ & is given which is the command for opening the leafpad.
          3. Now the leafpad is opened in which the required code for the title is typed respectively.
-         
+![image](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/93e01f38-9ea3-44c1-a062-2b9e9810f0bd)         
 
 ##### PROGRAM:
          1. The required code for the given title is written in the leafpad.
          2. The code written has to be saved.
          3. It could be saved by clicking on to the file option on the top left of the leafpad opened.
-         ![image](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/e7b39444-a27a-4113-af73-4bf500e2903b)
+![image](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/e7b39444-a27a-4113-af73-4bf500e2903b)
 ##### OUTPUT COMMAND:
          1. The terminal is opened to obtain the output.
          2. The gcc _filename_.c is given with the extension of .c 
          3. After which the ouput is viewed through the command of ./a.out respectively.
-         ![image](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/e6d29330-dfa0-47ef-a714-8be9be57a433)
+![image](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/e6d29330-dfa0-47ef-a714-8be9be57a433)
 
 ##### OUTPUT OBTAINED:
          1. Thus the terminal window would display the output foe the code that is written in the leafpad respectively.
          2. The obtained output is the required output that could bbe obtained through the ubuntu software through the command ./a.out respectively.
-         ![image](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/91a172d6-239b-48e5-a596-a14e35edf74e)
+![image](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/91a172d6-239b-48e5-a596-a14e35edf74e)
 
 ##### OPENING RISC COMPILER:
          1. Initially the cat _filename_ is given to make the code to appear in the terminal window respectively.
@@ -44,11 +44,11 @@ Program to output the sum of numbers (Sample).
          2. The line of code appeared would be too long as a result of which to reduce the code the following commnad is used.
          3. The command of riscv64-unknown-elf-objdump -d _filename_.o | less.
          4. The above command would thus result in a concised assembly level code.
-         ![image](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/8598def7-1978-4891-9bce-1eb11f2fb463)
+![image](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/8598def7-1978-4891-9bce-1eb11f2fb463)
 
 ##### OUTPUT:
          1. Thus the result is obtained for the required code given in the leafpad.
-         ![image](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/82dde3e0-2b21-4610-97d6-fee04abbec80)
+![image](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/82dde3e0-2b21-4610-97d6-fee04abbec80)
 
 
 #### TASK_2:
@@ -71,23 +71,23 @@ As mentioned in the above task_1 the similar steps are to be followed. The only 
 #### COMMAND TO OPEN LEAFPAD:
          1. Initially the cd command is given in the terminal.
          2. Now the leafpad is opened in which the required code for the title is typed respectively
-         ![1 Opening of leafpad cdp](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/e5535b04-718a-48e9-95ea-8169ad011a54)
+![1 Opening of leafpad cdp](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/e5535b04-718a-48e9-95ea-8169ad011a54)
 
 #### PROGRAM FOR THE CLOCK DIVIDER:
          1. The required code for the given title is written in the leafpad.
          2. The code written has to be saved.
          3. It could be saved by clicking on to the file option on the top left of the leafpad opened.
-         ![2 Clock Divider Program](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/5fc1de7c-787e-4171-b3b8-976158e920d8)
+![2 Clock Divider Program](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/5fc1de7c-787e-4171-b3b8-976158e920d8)
 
 #### OUTPUT COMMAND:
          1. The terminal is opened to obtain the output.
          2. The gcc _filename_.c is given with the extension of .c 
          3. After which the ouput is viewed through the command of ./a.out respectively.
-         ![3 Output Command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/4029c8f3-b055-4f51-8953-80796eabf585)
+![3 Output Command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/4029c8f3-b055-4f51-8953-80796eabf585)
 
 #### OUTPUT OBTAINED:
          1. Thus the result is obtained for the required code given in the leafpad.
-         ![4 Output for the cdp code](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/46f87afc-c9cc-4fa8-b36b-5d24329517f2)
+![4 Output for the cdp code](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/46f87afc-c9cc-4fa8-b36b-5d24329517f2)
 #### FLOWCHART:
           Start
             |
