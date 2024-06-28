@@ -156,6 +156,8 @@ This flowchart provides a visual representation of how the program executes, div
 #### TASK_3:
 Write a simple C program for your project selected and compile with RISC-V GCC.
 
+Compiling the C code with both GCC and RISCV confirms its compatibility with the Kit and the chip. Utilizing an AI tool to generate the cdp output streamlines the retrieval of the C code for the project cdp. This approach ensures precise implementation, speeds up development, and minimizes human errors, thus enhancing the clock divider's overall reliability and performance.
+
 #### Steps to Compile with RISC-V GCC:
 #### * Install RISC-V GCC Toolchain:
        Ensure you have the RISC-V GCC toolchain installed. If not, you can download and install it from the RISC-V 
