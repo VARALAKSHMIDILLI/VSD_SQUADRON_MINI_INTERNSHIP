@@ -287,12 +287,10 @@ _opcode_: Operation code.
 _rd_: Destination register.
 _immediate_: 20-bit immediate value.
 _Efficiency_:
-          *Allows setting the upper 20 bits of a register, useful for large 
-           immediate values or addresses.
+          *Allows setting the upper 20 bits of a register, useful for large immediate values or addresses.
           *Reduces the need for multiple instructions to construct large constants.
 _Flexibility_:
-            *Used in instructions like LUI (Load Upper Immediate) and AUIPC (Add *Upper Immediate to PC), enabling flexible manipulation of large values 
-             and addresses.
+            *Used in instructions like LUI (Load Upper Immediate) and AUIPC (Add *Upper Immediate to PC), enabling flexible manipulation of large values and addresses.
             *Simplifies address calculations and large constant handling.
 
 ###### 6. J-Type (Jump Type)
@@ -305,8 +303,7 @@ _rd_: Destination register.
 _immediate_: 20-bit immediate value, split across multiple fields.
 _Efficiency_:
           *Provides a mechanism for long-distance jumps with a single instruction.
-          *Immediate value embedded in the instruction allows quick access to jump 
-           targets.
+          *Immediate value embedded in the instruction allows quick access to jump targets.
 _Flexibility_:
            *Supports unconditional jumps, enabling functions and subroutine calls.
            *The split immediate field allows for encoding larger jump distances.
@@ -315,148 +312,149 @@ To encode the provided RISC-V instructions into their 32-bit binary format, we n
 
 ##### R-Type Instructions
 ###### ADD r1, r2, r3:
-_funct7 (7 bits)_: 0000000
-_rs2 (5 bits)_: 00011
-_rs1 (5 bits)_: 00010
-_funct3 (3 bits)_: 000
-_rd (5 bits)_: 00001
-_opcode (7 bits)_: 0110011
+_funct7 (7 bits)_: 0000000.
+_rs2 (5 bits)_: 00011.
+_rs1 (5 bits)_: 00010.
+_funct3 (3 bits)_: 000.
+_rd (5 bits)_: 00001.
+_opcode (7 bits)_: 0110011.
 _32 bit binary patterns_:
-               0000000 00011 00010 000 00001 0110011
+               0000000 00011 00010 000 00001 0110011.
 
 ###### SUB r3, r1, r2:
-_funct7 (7 bits)_: 0100000
-_rs2 (5 bits)_: 00010
-_rs1 (5 bits)_: 00001
-_funct3 (3 bits)_: 000
-_rd (5 bits)_: 00011
-_opcode (7 bits)_: 0110011
+_funct7 (7 bits)_: 0100000.
+_rs2 (5 bits)_: 00010.
+_rs1 (5 bits)_: 00001.
+_funct3 (3 bits)_: 000.
+_rd (5 bits)_: 00011.
+_opcode (7 bits)_: 0110011.
 _32-bit binary patterns_:
-               0100000 00010 00001 000 00011 0110011
+               0100000 00010 00001 000 00011 0110011.
 
 ###### AND r2, r1, r3:
-_funct7 (7 bits)_: 0000000
-_rs2 (5 bits)_: 00011
-_rs1 (5 bits)_: 00001
-_funct3 (3 bits)_: 111
-_rd (5 bits)_: 00010
-_opcode (7 bits)_: 0110011
+_funct7 (7 bits)_: 0000000.
+_rs2 (5 bits)_: 00011.
+_rs1 (5 bits)_: 00001.
+_funct3 (3 bits)_: 111.
+_rd (5 bits)_: 00010.
+_opcode (7 bits)_: 0110011.
 _32-bit binary patterns_:
-               0000000 00011 00001 111 00010 0110011
+               0000000 00011 00001 111 00010 0110011.
 
 ###### OR r8, r2, r5:
-_funct7 (7 bits)_: 0000000
-_rs2 (5 bits)_: 00101
-_rs1 (5 bits)_: 00010
-_funct3 (3 bits)_: 110
-_rd (5 bits)_: 01000
-_opcode (7 bits)_: 0110011
+_funct7 (7 bits)_: 0000000.
+_rs2 (5 bits)_: 00101.
+_rs1 (5 bits)_: 00010.
+_funct3 (3 bits)_: 110.
+_rd (5 bits)_: 01000.
+_opcode (7 bits)_: 0110011.
 _32-bit binary patterns_:
-               0000000 00101 00010 110 01000 0110011
+               0000000 00101 00010 110 01000 0110011.
 
 ###### XOR r8, r1, r4:
-_funct7 (7 bits)_: 0000000
-_rs2 (5 bits)_: 00100
-_rs1 (5 bits)_: 00001
-_funct3 (3 bits)_: 100
-_rd (5 bits)_: 01000
-_opcode (7 bits)_: 0110011
+_funct7 (7 bits)_: 0000000.
+_rs2 (5 bits)_: 00100.
+_rs1 (5 bits)_: 00001.
+_funct3 (3 bits)_: 100.
+_rd (5 bits)_: 01000.
+_opcode (7 bits)_: 0110011.
 _32-bit binary patterns_:
-               0000000 00100 00001 100 01000 0110011
+               0000000 00100 00001 100 01000 0110011.
 
 ###### SLT r10, r2, r4:
-_funct7 (7 bits)_: 0000000
-_rs2 (5 bits)_: 00100
-_rs1 (5 bits)_: 00010
-_funct3 (3 bits)_: 010
-_rd (5 bits)_: 01010
-_opcode (7 bits)_: 0110011
+_funct7 (7 bits)_: 0000000.
+_rs2 (5 bits)_: 00100.
+_rs1 (5 bits)_: 00010.
+_funct3 (3 bits)_: 000.
+_rd (5 bits)_: 01010.
+_opcode (7 bits)_: 0110011.
 _32-bit binary patterns_:
-               0000000 00100 00010 010 01010 0110011
+               0000000 00100 00010 010 01010 0110011.
 
 ##### I-Type Instructions:
 ###### ADDI r12, r3, 5
-_immediate (12 bits)_: 000000000101
-_rs1 (5 bits)_: 00011
-_funct3 (3 bits)_: 000
-_rd (5 bits)_: 01100
-_opcode (7 bits)_: 0010011
-_32-bit binary patterns_:
-               000000000101 00011 000 01100 0010011
+       *_immediate (12 bits)_: 000000000101.
+       *_rs1 (5 bits)_: 00011.
+       *_funct3 (3 bits)_: 000.
+       *_rd (5 bits)_: 01100.
+       *_opcode (7 bits)_: 0010011.
+       *_32-bit binary patterns_:
+                000000000101 00011 000 01100 0010011.
 
 ###### LW r13, r11, 2:
-*_immediate (12 bits)_: 000000000010
-*_rs1 (5 bits)_: 01011
-*_funct3 (3 bits)_: 010
-*_rd (5 bits)_: 01101
-*_opcode (7 bits)_: 0000011
-*_32-bit binary patterns_:
-               000000000010 01011 010 01101 0000011
+       *_immediate (12 bits)_: 000000000010.
+       *_rs1 (5 bits)_: 01011.
+       *_funct3 (3 bits)_: 010.
+       *_rd (5 bits)_: 01101.
+       *_opcode (7 bits)_: 0000011.
+       *_32-bit binary patterns_:
+                000000000010 01011 010 01101 0000011.
 
 ##### S-Type Instructions:
 ###### SW r3, r1, 4
-_immediate (12 bits)_: 000000000100 (split as 7 and 5 bits)
-_rs2 (5 bits)_: 00011
-_rs1 (5 bits)_: 00001
-_funct3 (3 bits)_: 010
-_opcode (7 bits)_: 0100011
-_32-bit binary patterns_:
-               0000000 00011 00001 010 00010 0100011
+      *_immediate (12 bits)_: 000000000100 (split as 7 and 5 bits).
+      *_rs2 (5 bits)_: 00011.
+      *_rs1 (5 bits)_: 00001.
+      *_funct3 (3 bits)_: 010.
+      *_opcode (7 bits)_: 0100011.
+      *_32-bit binary patterns_:
+               0000000 00011 00001 010 00010 0100011.
 
 ##### B-Type Instructions:
 ###### BNE r0, r1, 20
-_immediate (13 bits)_: 000000010100 (split across multiple fields)
-_rs2 (5 bits)_: 00001
-_rs1 (5 bits)_: 00000
-_funct3 (3 bits)_: 001
-_opcode (7 bits)_: 1100011
-_32-bit binary patterns_:
-000000 00001 00000 001 00101 1100011
+       *_immediate (13 bits)_: 000000010100 (split across multiple fields).
+       *_rs2 (5 bits)_: 00001.
+       *_rs1 (5 bits)_: 00000.
+       *_funct3 (3 bits)_: 001.
+       *_opcode (7 bits)_: 1100011.
+       *_32-bit binary patterns_:
+               000000 00001 00000 001 00101 1100011.
 
 ###### BEQ r0, r0, 15
-_immediate (13 bits)_: 00000001111 (split across multiple fields)
-_rs2 (5 bits)_: 00000
-_rs1 (5 bits)_: 00000
-_funct3 (3 bits)_: 000
-_opcode (7 bits_): 1100011
-_32-bit binary patterns_:
+      *_immediate (13 bits)_: 00000001111 (split across multiple fields)
+      *_rs2 (5 bits)_: 00000
+      *_rs1 (5 bits)_: 00000
+      *_funct3 (3 bits)_: 000
+      *_opcode (7 bits_): 1100011
+      *_32-bit binary patterns_:
                000000 00000 00000 000 01111 1100011
 
 ##### R-Type Instructions :
 ###### SRL r16, r11, r2
-_funct7 (7 bits)_: 0000000
-_rs2 (5 bits)_: 00010
-_rs1 (5 bits)_: 01011
-_funct3 (3 bits)_: 101
-_rd (5 bits)_: 10000
-_opcode (7 bits)_: 0110011
-_32-bit binary patterns_:
-               0000000 00010 01011 101 10000 0110011
+      *_funct7 (7 bits)_: 0000000.
+      *_rs2 (5 bits)_: 00010.
+      *_rs1 (5 bits)_: 01011.
+      *_funct3 (3 bits)_: 101.
+      *_rd (5 bits)_: 10000.
+      *_opcode (7 bits)_: 0110011.
+      *_32-bit binary patterns_:
+               0000000 00010 01011 101 10000 0110011.
 
 ###### SLL r15, r11, r2:
-*_funct7 (7 bits)_: 0000000
-*_rs2 (5 bits)_: 00010
-*_rs1 (5 bits)_: 01011
-*_funct3 (3 bits)_: 001
-*_rd (5 bits_): 01111
-*_opcode (7 bits)_: 0110011
-*_32-bit binary patterns_:
-               0000000 00010 01011 001 01111 0110011
+       *_funct7 (7 bits)_: 0000000.
+       *_rs2 (5 bits)_: 00010.
+       *_rs1 (5 bits)_: 01011.
+       *_funct3 (3 bits)_: 001.
+       *_rd (5 bits_): 01111.
+       *_opcode (7 bits)_: 0110011.
+       *_32-bit binary patterns_:
+                0000000 00010 01011 001 01111 0110011.
 
 Let's now combine these instructions into their 32-bit binary patterns:
-*ADD  r1, r2, r3 : 00000000001100010000000010110011
-*SUB  r3, r1, r2 : 01000000001000001000000110110011
-*AND  r2, r1, r3 : 00000000001100001111000010010011
-*OR   r8, r2, r5 : 00000000010100010110000100010011
-*XOR  r8, r1, r4 : 00000000010000001100000100010011
-*SLT  r10, r2, r4: 00000000010000010101000101010011
-*ADDI r12, r3, 5 : 00000000010100010000001100010011
-*SW   r3, r1, 4  : 00000000001100001010001000110011
-*SRL  r16, r11, r2: 00000000001001011101000000110011
-*BNE  r0, r1, 20 : 00000000001000000000100101100011
-*BEQ  r0, r0, 15 : 00000000000000000000011111100011
-*LW   r13, r11, 2: 00000000001001011010001100100011
-*SLL  r15, r11, r2: 00000000001001011000001111010011
+
+*ADD  r1, r2, r3 : 00000000001100010000000010110011.
+*SUB  r3, r1, r2 : 01000000001000001000000110110011.
+*AND  r2, r1, r3 : 00000000001100001111000010010011.
+*OR   r8, r2, r5 : 00000000010100010110000100010011.
+*XOR  r8, r1, r4 : 00000000010000001100000100010011.
+*SLT  r10, r2, r4: 00000000010000010101000101010011.
+*ADDI r12, r3, 5 : 00000000010100010000001100010011.
+*SW   r3, r1, 4  : 00000000001100001010001000110011.
+*SRL  r16, r11, r2: 00000000001001011101000000110011.
+*BNE  r0, r1, 20 : 00000000001000000000100101100011.
+*BEQ  r0, r0, 15 : 00000000000000000000011111100011.
+*LW   r13, r11, 2: 00000000001001011010001100100011.
+*SLL  r15, r11, r2: 00000000001001011000001111010011.
 These binary patterns represent the 32-bit encoded instructions for each of the specified RISC-V instructions.
 
 
