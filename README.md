@@ -191,7 +191,8 @@ Compiling the C code with both GCC and RISCV confirms its compatibility with the
 ![4 Instructions and their Outputs](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/065313fe-5192-4069-b34d-5e7692aeb06a) 
 
 ##### TASK_4:
-Identify various RISC-V instruction type (R, I, S, B, U, J) and exact 32-bit instruction code in the instruction type format for below RISC-V instructions 
+Identify various RISC-V instruction type (R, I, S, B, U, J) and exact 32-bit instruction code in the instruction type format for below RISC-V instructions.
+###### INSTRUCTIONS: 
          ADD r1, r2, r3
          SUB r3, r1, r2
          AND r2, r1, r3
