@@ -210,166 +210,146 @@ Upload the 32-bit pattern on Github.
 RISC-V is an open standard Instruction Set Architecture (ISA) that uses a modular design, allowing for a simple and scalable instruction set. Here are the main instruction types in RISC-V:
 
 ##### 1. R-Type (Register Type)
-_Purpose_: Used for arithmetic and logical operations.
-_Format_:
-31   25 24  20 19  15 14  12 11   7 6   0
-funct7 rs2 rs1 funct3 rd   opcode
-_opcode_: Operation code, specifies the operation to be performed.
-_rs1, rs2_: Source registers.
-_rd_: Destination register.
-_funct3, funct7_: Function fields, provide more specificity for the operation.
-_Efficiency_:
-           *Uses only registers, which are faster to access compared to memory.
-           *Allows for complex arithmetic and logical operations without memory access overhead.
-_Flexibility_:
-           *Supports a wide range of operations (e.g., addition, subtraction, bitwise operations).
-           *Function fields (funct3, funct7) allow for many operations to be encoded in a compact format.
+*_Purpose_: Used for arithmetic and logical operations.
+*_Format_: 31   25 24  20 19  15 14  12 11   7 6   0.
+           funct7 rs2 rs1 funct3 rd   opcode.
+*_opcode_: Operation code, specifies the operation to be performed.
+*_rs1, rs2_: Source registers.
+*_rd_: Destination register.
+*_funct3, funct7_: Function fields, provide more specificity for the operation.
+*_Efficiency_:*Uses only registers, which are faster to access compared to memory.
+              *Allows for complex arithmetic and logical operations without memory access overhead.
+*_Flexibility_:*Supports a wide range of operations (e.g., addition, subtraction, bitwise operations).
+               *Function fields (funct3, funct7) allow for many operations to be encoded in a compact format.
 
 ###### 2. I-Type (Immediate Type)
-_Purpose_: Used for operations involving a constant (immediate) value and for load instructions.
-_Format_:
-31     20 19  15 14  12 11   7 6   0
-immediate rs1 funct3 rd   opcode
-_opcode_: Operation code.
-_rs1_: Source register.
-_rd_: Destination register.
-_funct3: Function field.
-_immediate_: 12-bit immediate value.
-_Efficiency_:
-          *Combines a register and an immediate value, reducing the need for additional instructions to load constants.
-          *Immediate values are embedded within the instruction, allowing quick 
- access and reducing memory usage.
-_Flexibility_:
-          *Useful for arithmetic operations with constants and for load  instructions.
-          *Supports operations like immediate addition, bit shifts, and load from 
- memory.
+*_Purpose_: Used for operations involving a constant (immediate) value and for load instructions.
+*_Format_: 31     20 19  15 14  12 11   7 6 0.
+           immediate rs1 funct3 rd   opcode.
+*_opcode_: Operation code.
+*_rs1_: Source register.
+*_rd_: Destination register.
+*_funct3: Function field.
+*_immediate_: 12-bit immediate value.
+*_Efficiency_:*Combines a register and an immediate value, reducing the need for additional instructions to load constants.
+              *Immediate values are embedded within the instruction, allowing quick access and reducing memory usage.
+*_Flexibility_:*Useful for arithmetic operations with constants and for load  instructions.
+               *Supports operations like immediate addition, bit shifts, and load from memory.
 
 ##### 3. S-Type (Store Type)
-_Purpose_: Used for store instructions.
-_Format_:
-31   25 24  20 19  15 14  12 11    7 6   0
-immediate[11:5] rs2 rs1 funct3 immediate[4:0] opcode
-_opcode_: Operation code.
-_rs1_: Source register (address base).
-_rs2_: Source register (data to store).
-_funct3_: Function field.
-_immediate_: 12-bit immediate value, split across two fields.
-_Efficiency_:
-          *Directly stores data from a register to memory, reducing the need for intermediate instructions.
-          *The immediate value allows for flexible addressing modes.
-_Flexibility_:
-           *Supports various store operations (e.g., store byte, store word).
-           *Immediate field allows for different offset addressing.
+*_Purpose_: Used for store instructions.
+*_Format_:  31   25 24  20 19  15 14  12 11    7 6   0.
+            immediate[11:5] rs2 rs1 funct3 immediate[4:0] opcode.
+*_opcode_: Operation code.
+*_rs1_: Source register (address base).
+*_rs2_: Source register (data to store).
+*_funct3_: Function field.
+*_immediate_: 12-bit immediate value, split across two fields.
+*_Efficiency_:*Directly stores data from a register to memory, reducing the need for intermediate instructions.
+              *The immediate value allows for flexible addressing modes.
+*_Flexibility_:*Supports various store operations (e.g., store byte, store word).
+               *Immediate field allows for different offset addressing.
 
 ##### 4. B-Type (Branch Type)
-_Purpose_: Used for conditional branch instructions.
-_Format_:
-31   25 24  20 19  15 14  12 11    7 6   0
-immediate[12,10:5] rs2 rs1 funct3 immediate[4:1,11] opcode
-_opcode_: Operation code.
-_rs1, rs2_: Source registers.
-_funct3_: Function field.
-_immediate_: 13-bit immediate value, split across multiple fields.
-_Efficiency_:
-           *Enables conditional branching, which is essential for efficient control flow and loops.
-           *Immediate values allow for direct branching to nearby instructions, 
- reducing the need for longer, more complex jump instructions.
-_Flexibility_:
-           *Supports a range of conditional branches (e.g., equal, not equal, less than).
-           *Immediate field allows for efficient branch target encoding.
+*_Purpose_: Used for conditional branch instructions.
+*_Format_:  31   25 24  20 19  15 14  12 11    7 6   0.
+            immediate[12,10:5] rs2 rs1 funct3 immediate[4:1,11] opcode.
+*_opcode_: Operation code.
+*_rs1, rs2_: Source registers.
+*_funct3_: Function field.
+*_immediate_: 13-bit immediate value, split across multiple fields.
+*_Efficiency_:*Enables conditional branching, which is essential for efficient control flow and loops.
+              *Immediate values allow for direct branching to nearby instructions,reducing the need for longer, more complex jump instructions.
+*_Flexibility_:*Supports a range of conditional branches (e.g., equal, not equal, less than).
+               *Immediate field allows for efficient branch target encoding.
 
 ##### 5. U-Type (Upper Immediate Type)
--Purpose_: Used for instructions that set a 20-bit immediate in the upper 20 bits of a register.
-_Format_:
-31     12 11   7 6   0
-immediate[31:12] rd   opcode
-_opcode_: Operation code.
-_rd_: Destination register.
-_immediate_: 20-bit immediate value.
-_Efficiency_:
-          *Allows setting the upper 20 bits of a register, useful for large immediate values or addresses.
-          *Reduces the need for multiple instructions to construct large constants.
-_Flexibility_:
-            *Used in instructions like LUI (Load Upper Immediate) and AUIPC (Add *Upper Immediate to PC), enabling flexible manipulation of large values and addresses.
-            *Simplifies address calculations and large constant handling.
+*_Purpose_: Used for instructions that set a 20-bit immediate in the upper 20 bits of a register.
+*_Format_: 31     12 11   7 6   0.
+           immediate[31:12] rd   opcode.
+*_opcode_: Operation code.
+*_rd_: Destination register.
+*_immediate_: 20-bit immediate value.
+*_Efficiency_:*Allows setting the upper 20 bits of a register, useful for large immediate values or addresses.
+              *Reduces the need for multiple instructions to construct large constants.
+*_Flexibility_:*Used in instructions like LUI (Load Upper Immediate) and AUIPC (Add *Upper Immediate to PC), enabling flexible manipulation of large values and 
+               addresses.
+              *Simplifies address calculations and large constant handling.
 
 ###### 6. J-Type (Jump Type)
-_Purpose_: Used for jump instructions with a 20-bit immediate for the target address.
-_Format_:
-31      12 11 7 6   0
-immediate[20,10:1,11,19:12] rd   opcode
-_opcode_: Operation code.
-_rd_: Destination register.
-_immediate_: 20-bit immediate value, split across multiple fields.
-_Efficiency_:
-          *Provides a mechanism for long-distance jumps with a single instruction.
-          *Immediate value embedded in the instruction allows quick access to jump targets.
-_Flexibility_:
-           *Supports unconditional jumps, enabling functions and subroutine calls.
-           *The split immediate field allows for encoding larger jump distances.
+*_Purpose_: Used for jump instructions with a 20-bit immediate for the target address.
+*_Format_:  31      12 11 7 6   0.
+            immediate[20,10:1,11,19:12] rd   opcode.
+*_opcode_: Operation code.
+*_rd_: Destination register.
+*_immediate_: 20-bit immediate value, split across multiple fields.
+*_Efficiency_:*Provides a mechanism for long-distance jumps with a single instruction.
+              *Immediate value embedded in the instruction allows quick access to jump targets.
+*_Flexibility_:*Supports unconditional jumps, enabling functions and subroutine calls.
+               *The split immediate field allows for encoding larger jump distances.
 
 To encode the provided RISC-V instructions into their 32-bit binary format, we need to follow the specific formats for each instruction type. Here are the 32-bit instruction codes for each instruction:
 
 ##### R-Type Instructions
 ###### ADD r1, r2, r3:
-_funct7 (7 bits)_: 0000000.
-_rs2 (5 bits)_: 00011.
-_rs1 (5 bits)_: 00010.
-_funct3 (3 bits)_: 000.
-_rd (5 bits)_: 00001.
-_opcode (7 bits)_: 0110011.
-_32 bit binary patterns_:
+       *_funct7 (7 bits)_: 0000000.
+       *_rs2 (5 bits)_: 00011.
+       *_rs1 (5 bits)_: 00010.
+       *_funct3 (3 bits)_: 000.
+       *_rd (5 bits)_: 00001.
+       *_opcode (7 bits)_: 0110011.
+       *_32 bit binary patterns_:
                0000000 00011 00010 000 00001 0110011.
 
 ###### SUB r3, r1, r2:
-_funct7 (7 bits)_: 0100000.
-_rs2 (5 bits)_: 00010.
-_rs1 (5 bits)_: 00001.
-_funct3 (3 bits)_: 000.
-_rd (5 bits)_: 00011.
-_opcode (7 bits)_: 0110011.
-_32-bit binary patterns_:
+       *_funct7 (7 bits)_: 0100000.
+       *_rs2 (5 bits)_: 00010.
+       *_rs1 (5 bits)_: 00001.
+       *_funct3 (3 bits)_: 000.
+       *_rd (5 bits)_: 00011.
+       *_opcode (7 bits)_: 0110011.
+       *_32-bit binary patterns_:
                0100000 00010 00001 000 00011 0110011.
 
 ###### AND r2, r1, r3:
-_funct7 (7 bits)_: 0000000.
-_rs2 (5 bits)_: 00011.
-_rs1 (5 bits)_: 00001.
-_funct3 (3 bits)_: 111.
-_rd (5 bits)_: 00010.
-_opcode (7 bits)_: 0110011.
-_32-bit binary patterns_:
+       *_funct7 (7 bits)_: 0000000.
+       *_rs2 (5 bits)_: 00011.
+       *_rs1 (5 bits)_: 00001.
+       *_funct3 (3 bits)_: 111.
+       *_rd (5 bits)_: 00010.
+       *_opcode (7 bits)_: 0110011.
+       *_32-bit binary patterns_:
                0000000 00011 00001 111 00010 0110011.
 
 ###### OR r8, r2, r5:
-_funct7 (7 bits)_: 0000000.
-_rs2 (5 bits)_: 00101.
-_rs1 (5 bits)_: 00010.
-_funct3 (3 bits)_: 110.
-_rd (5 bits)_: 01000.
-_opcode (7 bits)_: 0110011.
-_32-bit binary patterns_:
-               0000000 00101 00010 110 01000 0110011.
+       *_funct7 (7 bits)_: 0000000.
+       *_rs2 (5 bits)_: 00101.
+       *_rs1 (5 bits)_: 00010.
+       *_funct3 (3 bits)_: 110.
+       *_rd (5 bits)_: 01000.
+       *_opcode (7 bits)_: 0110011.
+       *_32-bit binary patterns_:
+                0000000 00101 00010 110 01000 0110011.
 
 ###### XOR r8, r1, r4:
-_funct7 (7 bits)_: 0000000.
-_rs2 (5 bits)_: 00100.
-_rs1 (5 bits)_: 00001.
-_funct3 (3 bits)_: 100.
-_rd (5 bits)_: 01000.
-_opcode (7 bits)_: 0110011.
-_32-bit binary patterns_:
-               0000000 00100 00001 100 01000 0110011.
+       *_funct7 (7 bits)_: 0000000.
+       *_rs2 (5 bits)_: 00100.
+       *_rs1 (5 bits)_: 00001.
+       *_funct3 (3 bits)_: 100.
+       *_rd (5 bits)_: 01000.
+       *_opcode (7 bits)_: 0110011.
+       *_32-bit binary patterns_:
+                0000000 00100 00001 100 01000 0110011.
 
 ###### SLT r10, r2, r4:
-_funct7 (7 bits)_: 0000000.
-_rs2 (5 bits)_: 00100.
-_rs1 (5 bits)_: 00010.
-_funct3 (3 bits)_: 000.
-_rd (5 bits)_: 01010.
-_opcode (7 bits)_: 0110011.
-_32-bit binary patterns_:
-               0000000 00100 00010 010 01010 0110011.
+       *_funct7 (7 bits)_: 0000000.
+       *_rs2 (5 bits)_: 00100.
+       *_rs1 (5 bits)_: 00010.
+       *_funct3 (3 bits)_: 000.
+       *_rd (5 bits)_: 01010.
+       *_opcode (7 bits)_: 0110011.
+       *_32-bit binary patterns_:
+                0000000 00100 00010 010 01010 0110011.
 
 ##### I-Type Instructions:
 ###### ADDI r12, r3, 5
@@ -440,7 +420,7 @@ _32-bit binary patterns_:
        *_32-bit binary patterns_:
                 0000000 00010 01011 001 01111 0110011.
 
-Let's now combine these instructions into their 32-bit binary patterns:
+Let's now combine these instructions into their 32-bit binary patterns:.
 
 *ADD  r1, r2, r3 : 00000000001100010000000010110011.
 *SUB  r3, r1, r2 : 01000000001000001000000110110011.
