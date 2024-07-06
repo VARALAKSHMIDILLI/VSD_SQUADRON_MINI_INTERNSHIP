@@ -1,0 +1,40 @@
+TESTBENCH:
+
+module tb_rv32i_core;
+
+    reg clk;
+    reg reset;
+    reg [31:0] instr;
+    wire [31:0] pc;
+    wire [31:0] alu_result;
+    wire [31:0] reg_data;
+
+    rv32i_core uut (
+        .clk(clk),
+        .reset(reset),
+        .instr(instr),
+        .pc(pc),
+        .alu_result(alu_result),
+        .reg_data(reg_data)
+    );
+
+    initial begin
+        clk = 0;
+        reset = 1;
+        #10 reset = 0;
+
+        // Test ADD instruction (add x1, x2, x3)
+        instr = {7'b0000000, 5'd3, 5'd2, 3'b000, 5'd1, 7'b0110011}; // add x1, x2, x3
+        uut.registers[2] = 32'd10;
+        uut.registers[3] = 32'd20;
+
+        #20;
+        if (reg_data != 32'd30)
+            $display("Test failed: ADD x1, x2, x3");
+
+        $stop;
+    end
+
+    always #5 clk = ~clk;
+
+endmodule
