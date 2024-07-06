@@ -438,6 +438,96 @@ Let's now combine these instructions into their 32-bit binary patterns:.
       *_SLL  r15, r11, r2_: 00000000001001011000001111010011.
 These binary patterns represent the 32-bit encoded instructions for each of the specified RISC-V instructions.
 
+#####TASK_5:
+Use this RISC-V Core Verilog netlist and testbench for functional simulation experiment.
+Certainly! Here's a step-by-step guide to proceed with running the RISC-V core Verilog code and its testbench on Ubuntu:
+
+Step 1: Install Verilog Simulator
+You need to have a Verilog simulator installed. One popular choice is Icarus Verilog. You can install it using the following command:
+              sudo apt-get update
+              sudo apt-get install iverilog gtkwave
+
+Step 2: Create Verilog Source Files
+Create the RISC-V core file (rv32i_core.v):
+              nano rv32i_core.v
+
+Create the testbench file (tb_rv32i_core.v):
+            nano tb_rv32i_core.v
+
+Step 3: Compile the Verilog Code
+Use Icarus Verilog to compile the Verilog files:
+            iverilog -o tb_rv32i_core tb_rv32i_core.v rv32i_core.v
+This command compiles the Verilog files and creates an executable called tb_rv32i_core.
+
+Step 4: Run the Simulation
+Run the compiled Verilog code:
+            vvp tb_rv32i_core
+This will execute the testbench and display the simulation results in the terminal.
+
+Step 5: View Waveforms
+To view the waveforms, you need to generate a Value Change Dump (VCD) file from the simulation. Modify the testbench file (tb_rv32i_core.v) to include VCD dump commands:
+
+verilog code:
+
+module tb_rv32i_core;
+
+    reg clk;
+    reg reset;
+    reg [31:0] instr;
+    wire [31:0] pc;
+    wire [31:0] alu_result;
+    wire [31:0] reg_data;
+
+    rv32i_core uut (
+        .clk(clk),
+        .reset(reset),
+        .instr(instr),
+        .pc(pc),
+        .alu_result(alu_result),
+        .reg_data(reg_data)
+    );
+
+    initial begin
+        // VCD dump commands
+        $dumpfile("simulation.vcd");
+        $dumpvars(0, tb_rv32i_core);
+
+        clk = 0;
+        reset = 1;
+        #10 reset = 0;
+
+        // Test ADD instruction (add x1, x2, x3)
+        instr = {7'b0000000, 5'd3, 5'd2, 3'b000, 5'd1, 7'b0110011}; // add x1, x2, x3
+        uut.registers[2] = 32'd10;
+        uut.registers[3] = 32'd20;
+
+        #20;
+        if (reg_data != 32'd30)
+            $display("Test failed: ADD x1, x2, x3");
+
+        $stop;
+    end
+
+    always #5 clk = ~clk;
+
+endmodule
+
+Recompile and run the simulation again:
+
+            iverilog -o tb_rv32i_core tb_rv32i_core.v rv32i_core.v
+            vvp tb_rv32i_core
+            
+This will generate a simulation.vcd file that contains the waveform data.
+
+Step 6: Open Waveforms with GTKWave
+Use GTKWave to view the waveforms:
+           gtkwave simulation.vcd
+In GTKWave, you can add the signals you want to observe and analyze the waveform.
+
+
+
+
+
 
 
 
