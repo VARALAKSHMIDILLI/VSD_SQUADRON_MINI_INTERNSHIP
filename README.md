@@ -442,87 +442,65 @@ These binary patterns represent the 32-bit encoded instructions for each of the 
 Use this RISC-V Core Verilog netlist and testbench for functional simulation experiment.
 Certainly! Here's a step-by-step guide to proceed with running the RISC-V core Verilog code and its testbench on Ubuntu:
 
-Step 1: Install Verilog Simulator
-You need to have a Verilog simulator installed. One popular choice is Icarus Verilog. You can install it using the following command:
-              sudo apt-get update
-              sudo apt-get install iverilog gtkwave
-
-Step 2: Create Verilog Source Files
-Create the RISC-V core file (rv32i_core.v):
-              nano rv32i_core.v
-
-Create the testbench file (tb_rv32i_core.v):
-            nano tb_rv32i_core.v
-
-Step 3: Compile the Verilog Code
-Use Icarus Verilog to compile the Verilog files:
-            iverilog -o tb_rv32i_core tb_rv32i_core.v rv32i_core.v
-This command compiles the Verilog files and creates an executable called tb_rv32i_core.
-
-Step 4: Run the Simulation
-Run the compiled Verilog code:
-            vvp tb_rv32i_core
-This will execute the testbench and display the simulation results in the terminal.
-
-Step 5: View Waveforms
-To view the waveforms, you need to generate a Value Change Dump (VCD) file from the simulation. Modify the testbench file (tb_rv32i_core.v) to include VCD dump commands:
-
-verilog code:
-
-module tb_rv32i_core;
-
-    reg clk;
-    reg reset;
-    reg [31:0] instr;
-    wire [31:0] pc;
-    wire [31:0] alu_result;
-    wire [31:0] reg_data;
-
-    rv32i_core uut (
-        .clk(clk),
-        .reset(reset),
-        .instr(instr),
-        .pc(pc),
-        .alu_result(alu_result),
-        .reg_data(reg_data)
-    );
-
-    initial begin
-        // VCD dump commands
-        $dumpfile("simulation.vcd");
-        $dumpvars(0, tb_rv32i_core);
-
-        clk = 0;
-        reset = 1;
-        #10 reset = 0;
-
-        // Test ADD instruction (add x1, x2, x3)
-        instr = {7'b0000000, 5'd3, 5'd2, 3'b000, 5'd1, 7'b0110011}; // add x1, x2, x3
-        uut.registers[2] = 32'd10;
-        uut.registers[3] = 32'd20;
-
-        #20;
-        if (reg_data != 32'd30)
-            $display("Test failed: ADD x1, x2, x3");
-
-        $stop;
-    end
-
-    always #5 clk = ~clk;
-
-endmodule
-
-Recompile and run the simulation again:
-
-            iverilog -o tb_rv32i_core tb_rv32i_core.v rv32i_core.v
-            vvp tb_rv32i_core
+Step 1:A directory is created with the folowing command:
+             $ mkdir squadron_vsdmini (squadron_vsdmini- any name)
+ ![1 Directory](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/093bdc9a-8a1e-4efb-9a2b-f6323f3a3d87)
             
-This will generate a simulation.vcd file that contains the waveform data.
 
-Step 6: Open Waveforms with GTKWave
+Step 2:Create the verilog code and testbench file:
+             $ cd
+             $ leafpad squadron_vsdmini.v
+             $ leafpad squadron_vsdmini_tb .v
+![2 Testbench creation](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/66e07e01-576d-4a3b-a627-b5c65a38b3de)
+             
+Step 3: Compile the Verilog Code:
+Use Icarus Verilog to compile the Verilog files:
+            iverilog -o squadron_vsdminisquadron_vsdmini.v squadron_vsdmini_tb.v
+            $ ./squadron_vsdmini
+This command compiles the Verilog files and creates an executable called squadron_vsdmini.
+![4 Gtk wave](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/8ee97f06-83fa-48c7-bb3d-7fe762e24ed3)
+
+
+Step 5: View Waveforms:
+To view the waveforms, you need to generate a Value Change Dump (VCD) file from the simulation. Modify the testbench file (tb_rv32i_core.v) to include VCD dump commands:
+![3 Netlist Dump command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/8470798d-db09-4664-adb3-34484546c9db)
+
+Step 6: Open Waveforms with GTKWave:
 Use GTKWave to view the waveforms:
            gtkwave simulation.vcd
 In GTKWave, you can add the signals you want to observe and analyze the waveform.
+![4 Gtk wave](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/b3b95151-c914-41f8-93d3-fc174299197d)
+
+GTK WAVEFORMS:
+1.ADD:
+![7 ADD Command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/d9ef6dff-1483-4bf9-8038-9d560f87d941)
+
+2.AND:
+![8 AND Command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/8385db42-54fa-4836-930c-98a6d7c01c1a)
+
+3.BEQ:
+![9 BEQ Command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/c3b82992-6f4b-4525-97f2-f87bb550c865)
+
+4.BNE:
+![10 BNE Command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/e41d0731-d8b9-4d57-8384-770b9aa542ab)
+
+5.OR:
+![11 OR Command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/1bd73488-8c42-4744-a884-d330a002cecd)
+
+6.SLL:
+![12 SLL Command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/642a1a68-f17d-4390-ad1d-47443b5e4daf)
+
+7.SLT:
+![13 SLT Command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/cb8714f7-08bb-4bf0-8e6c-5daf4c84b1c8)
+
+8.SUB:
+![14 SUB Command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/9b0304c8-50c2-4f8e-a00c-88a60b1b93b3)
+
+9.XOR:
+![15 XOR Command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/f5ade277-9814-45b3-b9f8-4887d5387210)
+
+10.ADDI:
+![16 ADDI Command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/a9391109-c347-4f9d-97cf-d43e2a2b05ea)
 
 
 
