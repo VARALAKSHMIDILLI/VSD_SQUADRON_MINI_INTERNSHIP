@@ -502,16 +502,87 @@ GTK WAVEFORMS:
 10.ADDI:
 ![16 ADDI Command](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/a9391109-c347-4f9d-97cf-d43e2a2b05ea)
 
+TASK_6:
 
+Update the repo with,
+* Project Name
+* Overview
+* Components Required
+* Circuit Connection
+* Pinout Diagram (using a PowerPoint presentation)
+* Table for Pin Connection
+ 
+1. Project Name:
+Clock Cycle Divider: Crafting a Digital Clock Divider Circuit
 
+2. Overview:
+The Clock Cycle Divider: Crafting a Digital Clock Divider Circuit project aims to design a clock divider using a RISC-V processor. This clock divider will allow users to set a programmable division ratio, enabling precise control over the output clock frequency. The system uses a CH32V003 RISC-V processor to manage the clock signals and interfaces with other digital components for clock signal generation and division.
 
+3. Components Required:
+* CH32V003 RISC-V processor.
+* Oscillator/Clock source.
+* Breadboard.
+* Jumper wire.s
+* Power supply.
+* Resistors and capacitors (as needed for the clock circuit).
+* Programming interface (e.g., USB to UART converter).
 
+5. Circuit Connection:
+The circuit connection involves interfacing the CH32V003 RISC-V processor with an oscillator to generate the clock signal. The processor will divide the clock signal based on the programmable ratio set by the user. Connections include power and ground connections, clock input to the processor, and output connections to observe the divided clock signal.
 
+6. Pinout Diagram:
+![Pinout Diagram](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/9e76eb1f-e0b6-4ed3-a849-4fdd84d7ba8a)
 
+7. Table for Pin Connection:
 
+Component	        CH32V003 RISC-V Pin        	Description
+Oscillator VCC	    VCC	                        Power supply to the oscillator
+Oscillator GND	    GND	                        Ground connection
+Oscillator OUT	    CLK_IN	                    Clock signal input to the processor
+Processor OUT	    CLK_OUT	                    Divided clock signal output
+Power Supply VCC	VCC	                        Power supply to the processor
+Power Supply GND	GND	                        Ground connection
 
+8. Sample Code:
 
+#include <stdio.h>
+#include <stdint.h>
+#include <unistd.h>     // For sleep function
+#include <gpio.h>       // Example GPIO library, replace with your actual GPIO library
 
+#define GPIO_INPUT_PIN  0   // Example input GPIO pin number
+#define GPIO_OUTPUT_PIN 1   // Example output GPIO pin number
 
+#define DIVISION_RATIO  2   // Example division ratio
 
+int main() 
+{
+    gpio_setup();   // Setup GPIO pins for input and output
 
+    int input_state = 0;
+    int output_state = 0;
+    
+    while (1) 
+    {
+        // Read input GPIO pin (assuming it's connected to a button or switch)
+        input_state = gpio_read(GPIO_INPUT_PIN);
+
+        // Check input condition to adjust division ratio (example: button press)
+        // This part would depend on your specific input mechanism
+
+        // Perform clock division logic
+        if (output_state == 0) {
+            // Toggle output state every DIVISION_RATIO cycles
+            output_state = 1;
+            gpio_write(GPIO_OUTPUT_PIN, output_state);
+        } else {
+            output_state = 0;
+            gpio_write(GPIO_OUTPUT_PIN, output_state);
+        }
+
+        // Delay to slow down operation (adjust as needed)
+        usleep(500000);  // Example delay of 500 ms (500,000 microseconds)
+    }
+
+    return 0;
+}
