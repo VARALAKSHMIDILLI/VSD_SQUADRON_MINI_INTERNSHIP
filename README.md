@@ -531,6 +531,7 @@ The Clock Cycle Divider: Crafting a Digital Clock Divider Circuit project aims t
 The circuit connection involves interfacing the CH32V003 RISC-V processor with an oscillator to generate the clock signal. The processor will divide the clock signal based on the programmable ratio set by the user. Connections include power and ground connections, clock input to the processor, and output connections to observe the divided clock signal.
 
 6. Pinout Diagram:
+
 ![Pinout Diagram](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/9e76eb1f-e0b6-4ed3-a849-4fdd84d7ba8a)
 
 7. Table for Pin Connection:
@@ -545,18 +546,18 @@ Power Supply GND	GND	                        Ground connection
 
 8. Sample Code:
 
-#include <stdio.h>
-#include <stdint.h>
-#include <unistd.h>     // For sleep function
-#include <gpio.h>       // Example GPIO library, replace with your actual GPIO library
+  #include <stdio.h>
+  #include <stdint.h>
+  #include <unistd.h>     // For sleep function
+  #include <gpio.h>       // Example GPIO library, replace with your actual GPIO library
 
-#define GPIO_INPUT_PIN  0   // Example input GPIO pin number
-#define GPIO_OUTPUT_PIN 1   // Example output GPIO pin number
+  #define GPIO_INPUT_PIN  0   // Example input GPIO pin number
+  #define GPIO_OUTPUT_PIN 1   // Example output GPIO pin number
 
-#define DIVISION_RATIO  2   // Example division ratio
+  #define DIVISION_RATIO  2   // Example division ratio
 
-int main() 
-{
+  int main() 
+  {
     gpio_setup();   // Setup GPIO pins for input and output
 
     int input_state = 0;
@@ -585,4 +586,4 @@ int main()
     }
 
     return 0;
-}
+  }
