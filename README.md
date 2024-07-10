@@ -536,48 +536,52 @@ The circuit connection involves interfacing the CH32V003 RISC-V processor with a
 
 7. Table for Pin Connection:
 
-Component.	        CH32V003 RISC-V Pin.        	Description.
-Oscillator VCC.	    VCC.	                        Power supply to the oscillator.
-Oscillator GND.	    GND.	                        Ground connection.
-Oscillator OUT.	    CLK_IN.	                        Clock signal input to the processor.
-Processor OUT.	    CLK_OUT.	                    Divided clock signal output.
-Power Supply VCC.	VCC.	                        Power supply to the processor.
-Power Supply GND.	GND.	                        Ground connection.
+* Component.	        * CH32V003 RISC-V Pin.        	* Description.
+* Oscillator VCC.	    * VCC.	                        * Power supply to the oscillator.
+* Oscillator GND.	    * GND.	                        * Ground connection.
+* Oscillator OUT.	    * CLK_IN.	                    * Clock signal input to the processor.
+* Processor OUT.	    * CLK_OUT.	                    * Divided clock signal output.
+* Power Supply VCC.	    * VCC.	                        * Power supply to the processor.
+* Power Supply GND.	    * GND.	                        * Ground connection.
 
 8. Sample Code:
 
-  #include <stdio.h>
-  #include <stdint.h>
-  #include <unistd.h>     // For sleep function
-  #include <gpio.h>       // Example GPIO library, replace with your actual GPIO library
-  #define GPIO_INPUT_PIN  0   // Example input GPIO pin number
-  #define GPIO_OUTPUT_PIN 1   // Example output GPIO pin number
-  #define DIVISION_RATIO  2   // Example division ratio
-  int main() 
-  {
-  gpio_setup();   // Setup GPIO pins for input and output
-  int input_state = 0;
-  int output_state = 0;
-  while (1) 
-  {
-  // Read input GPIO pin (assuming it's connected to a button or switch)
-  input_state = gpio_read(GPIO_INPUT_PIN);
-  // Check input condition to adjust division ratio (example: button press)
-  // This part would depend on your specific input mechanism
-  // Perform clock division logic
-  if (output_state == 0)
-  {
-  // Toggle output state every DIVISION_RATIO cycles
-  output_state = 1;
-  gpio_write(GPIO_OUTPUT_PIN, output_state);
-  } 
-  else 
-  {
-  output_state = 0;
-  gpio_write(GPIO_OUTPUT_PIN, output_state);
-  }
-  // Delay to slow down operation (adjust as needed)
-  usleep(500000);  // Example delay of 500 ms (500,000 microseconds)
-  }
-  return 0;
-  }
+#include <stdio.h>
+#include <stdint.h>
+#include <unistd.h>     // For sleep function
+#include <gpio.h>       // Example GPIO library, replace with your actual GPIO library
+
+#define GPIO_INPUT_PIN  0   // Example input GPIO pin number
+#define GPIO_OUTPUT_PIN 1   // Example output GPIO pin number
+
+#define DIVISION_RATIO  2   // Example division ratio
+
+int main() {
+    gpio_setup();   // Setup GPIO pins for input and output
+
+    int input_state = 0;
+    int output_state = 0;
+    
+    while (1) {
+        // Read input GPIO pin (assuming it's connected to a button or switch)
+        input_state = gpio_read(GPIO_INPUT_PIN);
+
+        // Check input condition to adjust division ratio (example: button press)
+        // This part would depend on your specific input mechanism
+
+        // Perform clock division logic
+        if (output_state == 0) {
+            // Toggle output state every DIVISION_RATIO cycles
+            output_state = 1;
+            gpio_write(GPIO_OUTPUT_PIN, output_state);
+        } else {
+            output_state = 0;
+            gpio_write(GPIO_OUTPUT_PIN, output_state);
+        }
+
+        // Delay to slow down operation (adjust as needed)
+        usleep(500000);  // Example delay of 500 ms (500,000 microseconds)
+    }
+
+    return 0;
+}
