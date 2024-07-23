@@ -585,3 +585,6 @@ int main() {
 
     return 0;
 }
+####TASK_7:
+The output video for the clock divider project is displayed in the following link.
+(https://drive.google.com/file/d/1YlnKn_3_TJh4bnr0kguBEzGgjEk-rRgB/view?usp=sharing)
