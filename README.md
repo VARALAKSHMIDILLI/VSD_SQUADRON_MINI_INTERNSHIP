@@ -531,30 +531,8 @@ The Clock Cycle Divider: Crafting a Digital Clock Divider Circuit project aims t
 The circuit connection involves interfacing the CH32V003 RISC-V processor with an oscillator to generate the clock signal. The processor will divide the clock signal based on the programmable ratio set by the user. Connections include power and ground connections, clock input to the processor, and output connections to observe the divided clock signal.
 
 6. Pinout Diagram:
-+---------------------------------------------------+
-|                    VSD Squadron Mini              |
-|    +----------------+    +-----------------+      |
-|    |                |    |                 |      |
-|    | LCD Display    |    | LED             |      |
-|    |                |    |                 |      |
-|    +--------+-------+    +--------+--------+      |
-|             |                   |                 |
-|        +----+----+         +----+----+            |
-|        |         |         |         |            |
-|    GND |         |         |         | GND        |
-|        |         |         |         |            |
-|        |         |         |         |            |
-|    VCC |         |         |         | VCC        |
-|        |         |         |         |            |
-|        |         |         |         |            |
-|   SDA  | GPIO 1  |         | GPIO 2  | Control    |
-|        |         |         |         | LED        |
-|        |         |         |         |            |
-|   SCL  | GPIO 3  |         |         |            |
-|        |         |         |         |            |
-|        +---------+         +---------+            |
-|                                                   |
-+----------------------------------------------------
+  ![Pinout diagram (2)](https://github.com/user-attachments/assets/d67db4d9-fea0-4876-8956-96896c70eb19)
+
 7. Table for Pin Connection:
 
 * Component.	        * CH32V003 RISC-V Pin.        	* Description.
