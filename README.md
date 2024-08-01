@@ -532,7 +532,31 @@ The circuit connection involves interfacing the CH32V003 RISC-V processor with a
 
 6. Pinout Diagram:
 
-![Pinout Diagram](https://github.com/VARALAKSHMIDILLI/VSD_SQUADRON_MINI_INTERNSHIP/assets/173541966/9e76eb1f-e0b6-4ed3-a849-4fdd84d7ba8a)
++---------------------------------------------------+
+|                    VSD Squadron Mini              |
+|    +----------------+    +-----------------+      |
+|    |                |    |                 |      |
+|    | LCD Display    |    | LED             |      |
+|    |                |    |                 |      |
+|    +--------+-------+    +--------+--------+      |
+|             |                   |                 |
+|        +----+----+         +----+----+            |
+|        |         |         |         |            |
+|    GND |         |         |         | GND        |
+|        |         |         |         |            |
+|        |         |         |         |            |
+|    VCC |         |         |         | VCC        |
+|        |         |         |         |            |
+|        |         |         |         |            |
+|   SDA  | GPIO 1  |         | GPIO 2  | Control    |
+|        |         |         |         | LED        |
+|        |         |         |         |            |
+|   SCL  | GPIO 3  |         |         |            |
+|        |         |         |         |            |
+|        +---------+         +---------+            |
+|                                                   |
++---------------------------------------------------+
+
 
 7. Table for Pin Connection:
 
